@@ -1,0 +1,8 @@
+# To start docker
+docker run --runtime=nvidia  -v $HOME:$HOME -ti bryankp/pycuda:latest bash
+
+# To stop docker
+docker kill $(docker ps -q)
+
+# To cd 
+cd home/20je0020/GPU_Lab_Files/Lab10/

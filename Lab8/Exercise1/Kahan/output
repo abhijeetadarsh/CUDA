@@ -1,0 +1,3 @@
+[20je0020@gr02 Kahan]$ ./a.out 
+Normal sum: 0.9999999999999999
+Kahan sum: 1

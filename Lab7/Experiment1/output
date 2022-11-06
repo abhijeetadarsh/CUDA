@@ -1,0 +1,6 @@
+[20je0020@gr02 Experiment1]$ nvcc SumReduction.cu 
+[20je0020@gr02 Experiment1]$ ./a.out 
+Array Size is = 1024
+Time to do memory transfer of array a, from host to device is 0.026624 ms
+Time to do sum reduction is 0.051680 ms
+Sum = 524800.000000

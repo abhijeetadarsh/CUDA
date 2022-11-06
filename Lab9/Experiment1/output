@@ -1,0 +1,3 @@
+[20je0020@gr02 Experiment1]$ nvcc SingleStream.cu 
+[20je0020@gr02 Experiment1]$ ./a.out 
+The single stream with ID 34898576 was created and the total time taken for ( data transfer, computation) is 43.406338 ms

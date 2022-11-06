@@ -1,0 +1,4 @@
+[20je0020@gr02 Experiment1]$ nvcc fp-mad.cu 
+[20je0020@gr02 Experiment1]$ ./a.out 
+The device output and host value are different, (host-device) is =8.881784e-16.
+The device output is 4.38273896140900109941 and the host output is=4.38273896140900021123

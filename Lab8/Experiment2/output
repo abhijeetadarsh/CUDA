@@ -1,0 +1,8 @@
+[20je0020@gr02 Experiment2]$ nvcc fpaccuracy.cu 
+[20je0020@gr02 Experiment2]$ ./a.out 
+Host single-pricision representation of 128.1 = 128.10000610351562500000
+Host double-precision representation of 128.1 = 128.09999999999999431566
+Device single-precision representation of128.1 = 128.10000610351562500000
+Device double-precision representation of128.1 = 128.09999999999999431566
+Device and host single-precision representation equal? yes
+Device and host double-precision representation equal? yes

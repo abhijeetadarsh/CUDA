@@ -1,0 +1,13 @@
+[20je0020@gr02 Exercise1]$ make run clean
+echo "running..."
+running...
+./a.out
+Array Size is = 65536
+Time to do memory transfer of array a, from host to device is 0.096288 ms
+Time to do sum reduction with warp divergence is 0.072864 ms
+Sum = 2147516416.000000
+Time to do sum reduction with less warp divergence is 0.034880 ms
+Sum = 2147516416.000000
+echo "cleaning..."
+cleaning...
+rm -rf *.o a.out

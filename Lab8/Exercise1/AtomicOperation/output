@@ -1,0 +1,6 @@
+[20je0020@gr02 AtomicOperation]$ nvcc atomicOperation.cu 
+[20je0020@gr02 AtomicOperation]$ ./a.out 
+initial value: 0
+after add: 1
+after atomicAdd: 3
+after atomicSub: 1
