@@ -1,0 +1,8 @@
+python3 pycudaDevInfo.py 
+1 device(s) found.
+Device #0: NVIDIA RTX A4000
+ Compute Capability: 8.6
+ Total Memory: 16501568 KB
+
+-------------------------------------------------------------------------------
+
