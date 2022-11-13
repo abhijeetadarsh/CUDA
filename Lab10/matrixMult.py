@@ -16,22 +16,32 @@ cuda.memcpy_htod(dev_b, mat_b)
 dev_c = cuda.mem_alloc(mat_c.nbytes)
 cuda.memcpy_htod(dev_c, mat_c)
 
-source_module = SourceModule("""
-__global__ void MatrixMulKernel(float* MatA, float* MatB, float* MatC,int Width){
-	int Row = blockIdx.y*blockDim.y+threadIdx.y;
-	int Col = blockIdx.x*blockDim.x+threadIdx.x;
-	if((Row < Width) and (Col < Width)){
-		float Pvalue = 0;
-		for(int k=0;k < Width;k++){
-			Pvalue += MatA[Row*Width + k]*MatB[k*Width + Col];
-		}
-		MatC[Row*Width + Col] = Pvalue;
-	}
+kernel_code_template="""
+__global__ void MatrixMulKernel(float *MatA, float *MatB, float *MatC)
+{
+    int Row = blockIdx.y * blockDim.y + threadIdx.y;
+    int Col = blockIdx.x * blockDim.x + threadIdx.x;
+    if ((Row < %(MATRIX_LEN)s) and (Col < %(MATRIX_LEN)s))
+    {
+        float Pvalue = 0;
+        for (int k = 0; k < %(MATRIX_LEN)s; k++)
+        {
+            Pvalue += MatA[Row * %(MATRIX_LEN)s + k] * MatB[k * %(MATRIX_LEN)s + Col];
+        }
+        MatC[Row * %(MATRIX_LEN)s + Col] = Pvalue;
+    }
 }
-""")
-
-tiled_matrix_multiplication_function = source_module.get_function("MatrixMulKernel")
-tiled_matrix_multiplication_function(dev_a, dev_b, dev_c, MATRIX_LEN, block=(1, 1, 1), grid=(MATRIX_LEN, MATRIX_LEN, 1))
+"""
+kernel_code = kernel_code_template % {
+    'MATRIX_LEN': MATRIX_LEN 
+    }
+mod = compiler.SourceModule(kernel_code)
+mulFunc=mod.get_function("MatrixMulKernel")
+mulFunc(
+    dev_a, dev_b, dev_c,
+    block=(1, 1, 1),
+    grid=(MATRIX_LEN, MATRIX_LEN, 1)
+    )
 
 cuda.memcpy_dtoh(mat_c, dev_c)
 

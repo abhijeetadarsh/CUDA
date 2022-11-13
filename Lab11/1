@@ -11,12 +11,12 @@ def print_device_info():
 		
 		for device in platform.get_devices():
 			print('    ' + '-' * 56)
-			print('    Device - Name: ' + device.name)
-			print('    Device - Type: ' + cl.device_type.to_string(device.type))
+			print('    Device - Name: '\ + device.name)
+			print('    Device - Type: '\ + cl.device_type.to_string(device.type))
 		
-	print('\n')
+	print('\n)
 
-if __name__ == "__main__":
+if __name__ = "__main__":
 	print_device_info()
 
 
