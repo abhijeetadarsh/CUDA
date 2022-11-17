@@ -66,7 +66,7 @@ int main()
 		CHECK(cudaMemcpy(c,dev_c, sizeof(float),cudaMemcpyDeviceToHost));
 	rec_stop;
 	rec_pr("Time to do sum reduction with less warp divergence is");
-	printf("Sum = %f\n",c[0]);
+	printf("Sum = %f\n",_c[0]);
 
 	cudaEventDestroy(start);
 	cudaEventDestroy(stop);

@@ -13,6 +13,12 @@ def print_device_info():
 			print('    ' + '-' * 56)
 			print('    Device - Name: ' + device.name)
 			print('    Device - Type: ' + cl.device_type.to_string(device.type))
+			print('    Device - ComputeUnits: {0}' .format(device.max_compute_units))
+			print('    Device - LocalMemory: {0:.0f} KB' .format(device.local_mem_size/1024.0))
+			print('    Device - ConstantMemory: {0:.0f} KB' .format(device.max_constant_buffer_size/1024.0))
+			print('    Device - GlobalMemory: {0:.0f} GB' .format(device.global_mem_size/1073741824.0))
+			print('    Device - MaxBuffer/ImageSize: {0:.0f} MB' .format(device.max_mem_alloc_size/1048576.0))
+			print('    Device - MaxWorkGroupSize: {0:.0f}' .format(device.max_work_group_size))
 		
 	print('\n')
 

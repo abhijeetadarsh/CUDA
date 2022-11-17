@@ -1,7 +1,7 @@
 #ifndef WHATEVER_H_INCLUDED
 #define WHATEVER_H_INCLUDED
 
-#define N (37)
+#define N (1024)
 #define BD 256
 #define CHECK(call)\
 {\
@@ -17,7 +17,8 @@
 #define rec_init float elapsedTime;\
 	cudaEvent_t start, stop;\
 	CHECK(cudaEventCreate(&start));\
-	CHECK(cudaEventCreate(&stop))
+	CHECK(cudaEventCreate(&stop));\
+	float * &_c = b;
 
 #define rec_start CHECK(cudaEventRecord(start,0))
 

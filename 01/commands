@@ -15,8 +15,8 @@ docker start bird
 docker stop bird
 docker rm bird
 
-docker run -d -t --name bird --runtime=nvidia -v $HOME:$HOME bryankp/pycuda:latest
 docker run -d -t --name bird --runtime=nvidia izone/pycuda:latest
+docker run -d -t --name bird --runtime=nvidia -v $HOME:$HOME bryankp/pycuda:latest
 
 docker exec -it bird bash
 

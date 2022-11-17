@@ -54,4 +54,5 @@ int main()
 	cout << setprecision(16);
 	cout << "Normal sum: " << sum(no) << "\n";
 	kahanSum<<<1, 10>>>(d_no);
+	cudaDeviceReset();
 }
